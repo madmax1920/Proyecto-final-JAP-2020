@@ -6,6 +6,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="1035130257449-7s50rgfo5qgbgcb4ng1lu98tfn736fkh.apps.googleusercontent.com">
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -14,16 +16,13 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <meta name="google-signin-scope" content="profile email">
-  <meta name="google-signin-client_id"
-    content="766902781044-u1rv1jg50vskossalk3521gom8h4f773.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-   
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+ 
   
 
 </head>  
 <body class="imagen" >
-  
+ 
  <form action="inicio.html" class="formulario" id="form">
  
     <h1>Crear Cuenta</h1>
@@ -47,6 +46,22 @@
          <input type="password" class="form-control" id="password"  placeholder="Contraseña" required>
          
          </div>
+         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+         <script>
+          function onSignIn(googleUser) {
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
+            
+    
+             window.location.href="cover.html"
+          }
+        </script>
          <input type="submit" value="Registrate" class="button">
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿Ya tienes una cuenta?<a class="link" href="inicio.html">Iniciar Sesion</a></p>

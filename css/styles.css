@@ -23,6 +23,12 @@ body {
    -moz-box-sizing: border-box;
    box-sizing: border-box;
 }
+.g-signin2{
+ 
+  padding: 170px;
+  padding-top: 5%;
+  margin: 0;
+}
 .contenedor{
  
       width: 100%;

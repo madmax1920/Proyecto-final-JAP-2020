@@ -6,6 +6,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="1035130257449-7s50rgfo5qgbgcb4ng1lu98tfn736fkh.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
    <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -17,7 +20,7 @@
   
 </head>
 <body class="imagen">
-    <form action= "cover.html" class="formulario" id="form"> 
+    <form action="cover.html" class="formulario" id="form"> 
       
     
     <h1>Iniciar Sesion</h1>
@@ -41,6 +44,24 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
          <input type="submit" value="Login" class="button" >
+         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+         <script>
+          function onSignIn(googleUser) {
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
+            var id_token = googleUser.getAuthResponse().id_token;
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);
+            window.location.href="cover.html";
+          }
+     
+        </script>
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="index.html">Registrate </a></p>
         
@@ -49,6 +70,6 @@
     </form>
     
     <script src="js/init.js"></script>
-    <script src="js/cover.js"></script>
+    
 </body>
 </html>

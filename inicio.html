@@ -20,7 +20,7 @@
   
 </head>
 <body class="imagen">
-    <form action="cover.html" class="formulario" id="form"> 
+    <form id="form" action="cover.html" class="formulario"method="GET">
       
     
     <h1>Iniciar Sesion</h1>
@@ -30,32 +30,33 @@
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" id="user" class="form-control" placeholder="Correo Electronico" >
-         
+         <input type="text" id="user" class="form-control" placeholder="Correo Electronico" required >
+         <div id=error-1 class="error"></div>
+        </div>
          </div>
          
          <div class="input-contenedor">
           <i class="fas fa-key icon"></i>
-         <input type="password" id="password" class="form-control" placeholder="Contraseña" >
-        
+         <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
+         <div id=error-2 class="error"></div>
          </div>
-         <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-         <input type="submit" value="Login" class="button" >
-         <br>
          
-         <div class="g-signin2" float data-onsuccess="onSignIn" data-theme="dark"></div>
-      
+          <label for=""><input type="checkbox"> Recuérdame</label>
+         <input type="submit" value="Iniciar Sesion" class="button" >
+         <a href="">Olvidé mi contraseña</a>
+         <div class="g-signin2"  data-width="200" data-height="50" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark"></div>
+          
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="index.html">Registrate </a></p>
         
      </div>
      
     </form>
-    <script src="js/login_google.js"></script>
+    
     <script src="js/init.js"></script>
+    <script src="js/login.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/login_google.js"></script>
     
     
     

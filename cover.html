@@ -15,6 +15,7 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -27,7 +28,16 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <button type="button" class="btn btn-danger" onclick="signOut();">Cerrar Sesion</button>
+      <div class="btn btn-success"id="user-welcome"></div>
+      
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Mi Cuenta
+        </button>
+      
+     
+    </div>
+    <button type="button" class="btn btn-danger" onclick="signOut();">Cerrar Sesion</button>
       
     </div>
   </nav>
@@ -112,11 +122,15 @@
   </footer>
   
   <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
+  
   <script src="js/init.js"></script>
   <script src="js/login_google.js"></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="js/login.js"></script>
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+  <script>
+    showUserName();
+  </script>
+  
   
 
   

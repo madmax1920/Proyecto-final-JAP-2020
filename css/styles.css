@@ -30,9 +30,9 @@ body {
   margin: 0;
 }
 .contenedor{
- 
-      width: 100%;
-    padding: 15px;
+  
+    width: 100%;
+    padding: 1px;
 }
 .formulario{
 
@@ -57,7 +57,7 @@ input[type="password"]{
 }
 .input-contenedor{
 
-    margin: 10px;
+    margin: 5px;
     margin-bottom: 15px;
     border: 1px solid #aaa;
 }

@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
@@ -5,8 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="1035130257449-7s50rgfo5qgbgcb4ng1lu98tfn736fkh.apps.googleusercontent.com">
     <title>eMercado - Todo lo que busques está aquí</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -23,55 +22,57 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <button type="button" class="btn btn-danger" onclick="signOut();">Cerrar Sesion</button>
       </div>
     </nav>
     <main role="main" class="pb-5">
-        <div class="text-center p-4">
-            <h2>Productos</h2>
-            <p class="lead">Verás aquí todos los productos de la categoría.</p>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col text-right">
-                    <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-                        <label class="btn btn-light active" id="sortByCount" >
-                            <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-sort-amount-down mr-1"></i>Relevancia
-                        </label>
-                        <label class="btn btn-light" id="sortAsc" >
-                          <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-up mr-1"></i>Precio
+      <div class="text-center p-4">
+          <h2>Productos</h2>
+          <p class="lead">Verás aquí todas los productos de la categoría <b>Autos.</b></p>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col text-right">
+                  <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                      <label class="btn btn-light active" id="sortAsc" >
+                          <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-sort-amount-down mr-1"></i>$
                       </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-end">
-              <div class="col-md-6"></div>
-                <div class="col-md-6 col-sm-12 mb-1 container">
-                  <div class="row container p-0 m-0">
-                    <div class="col">
-                      <p class="font-weight-normal text-right my-2">Precio</p>
-                    </div>
-                    <div class="col">
-                      <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
-                    </div>
-                    <div class="col">
-                      <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
-                    </div>
-                    <div class="col-3 p-0">
-                      <div class="btn-group" role="group">
-                        <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-                        <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-                      </div>
+                      <label class="btn btn-light" id="sortDesc" >
+                          <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-up mr-1"></i>$
+                      </label>
+                      <label class="btn btn-light" id="sortByCount" >
+                          <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Rel.
+                      </label>
+                  </div>
+              </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-md-6"></div>
+              <div class="col-md-6 col-sm-12 mb-1 container">
+                <div class="row container p-0 m-0">
+                  <div class="col">
+                    <p class="font-weight-normal text-right my-2">Precio</p>
+                  </div>
+                  <div class="col">
+                    <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+                  </div>
+                  <div class="col">
+                    <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+                  </div>
+                  <div class="col-3 p-0">
+                    <div class="btn-group" role="group">
+                      <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                      <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
                     </div>
                   </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="list-group" id="prod-list-container">
-                </div>
-            </div>
-        </div>
-    </main>
+              </div>
+          </div>
+          <div class="row">
+              <div class="list-group" id="prod-list-container">
+              </div>
+          </div>
+      </div>
+  </main>
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">
@@ -86,9 +87,5 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
-    <script src="js/login_google.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  
   </body>
 </html>

@@ -20,7 +20,7 @@
   
 </head>
 <body class="imagen">
-    <form id="form" action="cover.html" class="formulario"method="GET">
+    <form id="form" class="formulario">
       
     
     <h1>Iniciar Sesion</h1>
@@ -29,18 +29,17 @@
      
          
          <div class="input-contenedor">
-         <i class="fas fa-envelope icon"></i>
-         <input type="text" id="user" class="form-control" placeholder="Correo Electronico" required >
-         <div id=error-1 class="error"></div>
+          
+         <input type="text" id="user" class="form-control" placeholder="Usuario" required >
+         
         </div>
          </div>
          
          <div class="input-contenedor">
-          <i class="fas fa-key icon"></i>
-         <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
-         <div id=error-2 class="error"></div>
-         </div>
+          
+         <input type="password" id="pass" class="form-control" placeholder="Contraseña" required>
          
+         </div>         
           <label for=""><input type="checkbox"> Recuérdame</label>
          <input type="submit" value="Iniciar Sesion" class="button" >
          <a href="">Olvidé mi contraseña</a>
@@ -55,7 +54,6 @@
     
     <script src="js/init.js"></script>
     <script src="js/login.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="js/login_google.js"></script>
     
     

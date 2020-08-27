@@ -2,8 +2,8 @@ const formulario = document.getElementById("form");
 const username = document.getElementById("user");
 const password = document.getElementById("pass");
 
-formulario.addEventListener("submit", function (e) {
-  e.preventDefault();
+formulario.addEventListener("submit", function (event) {
+  event.preventDefault();
 
   let users = {
     user: username.value,

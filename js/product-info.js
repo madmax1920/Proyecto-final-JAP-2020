@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             categoryNameHTML.innerHTML = category.name;
             categoryDescriptionHTML.innerHTML = category.description;
             productCountHTML.innerHTML = category.soldCount;
-            productCriteriaHTML.innerHTML = category.productCriteria;
+            productCriteriaHTML.innerHTML = category.category;
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(category.images);

@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="google-signin-scope" content="profile email">
-  <meta name="google-signin-client_id" content="1035130257449-7s50rgfo5qgbgcb4ng1lu98tfn736fkh.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="1035130257449-7s50rgfo5qgbgcb4ng1lu98tfn736fkh.apps.googleusercontent.com">
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -20,24 +21,25 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-     
+
       <a class="py-2 d-none d-md-inline-block" href="cover.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      
+
       <div class="dropdown">
-  <button class="btn btn-success dropdown-toggle" type="button"id="info-user"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-    <a class="dropdown-item" href="cart.html">Mi carrito</a>
-    <a><button class="dropdown-item"id="cerrar-sesion" onclick="signOut();">Cerrar Sesión</button></a>
-   
-    
-  </div>
-</div>
+        <button class="btn btn-success dropdown-toggle" type="button" id="info-user" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a><button class="dropdown-item" id="cerrar-sesion" onclick="signOut();">Cerrar Sesión</button></a>
+
+
+        </div>
+      </div>
   </nav>
   <main role="main">
     <div class="container mt-5">
@@ -50,7 +52,7 @@
       <h3 id="categoryName"></h3>
       <hr class="my-3">
       <dl>
-        
+
         <dt>Descripción</dt>
         <dd>
           <p id="categoryDescription" style="text-align: left;"></p>
@@ -58,7 +60,7 @@
 
         <dt>Cantidad de productos disponibles</dt>
         <dd>
-          <p id="productCount"style="text-align:left;"></p>
+          <p id="productCount" style="text-align:left;"></p>
         </dd>
 
         <dt>Criterio para incluir productos en esta categoría</dt>
@@ -68,9 +70,86 @@
 
         <dt>Imágenes ilustrativas</dt>
         <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery" >
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
           </div>
         </dd>
+        <div class="container">
+        <form>
+          <h1>Calificación</h1>
+                    <p class="clasificacion">
+            <input id="radio1" type="radio" name="estrellas" value="5">
+            <!--
+            --><label for="radio1">★</label>
+            <!--
+            --><input id="radio2" type="radio" name="estrellas" value="4">
+            <!--
+            --><label for="radio2">★</label>
+            <!--
+            --><input id="radio3" type="radio" name="estrellas" value="3">
+            <!--
+            --><label for="radio3">★</label>
+            <!--
+            --><input id="radio4" type="radio" name="estrellas" value="2">
+            <!--
+            --><label for="radio4">★</label>
+            <!--
+            --><input id="radio5" type="radio" name="estrellas" value="1">
+            <!--
+            --><label for="radio5">★</label>
+          </p>
+          </div>
+          <textarea name="" id="comentario" rows="5" cols="30" placeholder="ingrese su comentario"></textarea>
+          <br>
+          <br>
+          <input type="submit" value="Enviar Comentario" id="boton">
+          
+
+          <style>
+            
+              
+            }
+            #form {
+              width: 250px;
+              margin: 0 auto;
+              height: 50px;
+            }
+
+            #form p {
+              text-align: center;
+            }
+
+            #form label {
+              font-size: 20px;
+            }
+
+            input[type="radio"] {
+              display: none;
+            }
+
+            label {
+              color: grey;
+            }
+
+            .clasificacion {
+              font-size: 30px;
+              
+              max-width:200px;
+              direction: rtl;
+              unicode-bidi: bidi-override;
+            }
+
+            label:hover,
+            label:hover~label {
+              color: orange;
+            }
+
+
+            input[type="radio"]:checked~label {
+              color: orange;
+            }
+          </style>
+        </form>
+        
       </dl>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
     </div>
@@ -104,13 +183,13 @@
 
     if (localStorage.getItem("user") === null) {
       location.href = "inicio.html";
-      
+
     } else {
       user_account.innerHTML += `Bienvenido/a: ${localStorage.getItem("user")}`
-      
+
     }
   </script>
-  
+
 </body>
 
 </html>

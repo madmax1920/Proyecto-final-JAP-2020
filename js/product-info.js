@@ -42,4 +42,39 @@ document.addEventListener("DOMContentLoaded", function(e){
             showImagesGallery(category.images);
         }
     });
+    getJSONDataComentarios(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            comentarios = resultObj.data;
+            showComent(comentarios);
+
+
+        }
+    });
 });
+function showComent(comentarios){
+
+    let htmlContentToAppend = "";
+    for(comentario of comentarios){
+        
+
+       
+            htmlContentToAppend += `
+            <a  class="list-group-item list-group-item-action">
+                <div class="row">
+                                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ comentario.user +`</h4>
+                            <small class="text-muted">` + comentario.dateTime + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + comentario.description + `</p>
+                    </div>
+                    <p class="mb-1">` + comentario.score + `</p>
+                </div>
+            </a>
+            `
+        
+
+        document.getElementById("comentario").innerHTML = htmlContentToAppend;
+    }
+}

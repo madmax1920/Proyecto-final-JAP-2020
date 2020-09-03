@@ -14,7 +14,13 @@ body {
  background-attachment: fixed;
   
 }
-
+.vender{
+  background: url('../img/autos_web.png');
+  
+ background-size: cover;
+ background-attachment: fixed;
+  
+}
 
 * {
 

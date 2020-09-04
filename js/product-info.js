@@ -64,12 +64,14 @@ function showComent(comentarios){
                 <div class="row">
                                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ comentario.user +`</h4>
-                            <small class="text-muted">` + comentario.dateTime + ` artículos</small>
+                            <h4 class="mb-1">`+ comentario.user +`<p class="fa fa-star checked">` + comentario.score + `</p></h4>
+                            
+                            <small class="text-muted">` + comentario.dateTime + ` </small>
                         </div>
                         <p class="mb-1">` + comentario.description + `</p>
+                        
                     </div>
-                    <p class="mb-1">` + comentario.score + `</p>
+                    
                 </div>
             </a>
             `

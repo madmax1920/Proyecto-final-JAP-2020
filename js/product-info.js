@@ -24,24 +24,50 @@ function showImagesGallery(array){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            category = resultObj.data;
+        if (resultObj.status === "ok"){
+            product = resultObj.data;
 
-            let categoryNameHTML  = document.getElementById("categoryName");
-            let categoryDescriptionHTML = document.getElementById("categoryDescription");
-            let productCountHTML = document.getElementById("productCount");
-            let productCriteriaHTML = document.getElementById("productCriteria");
+            let productNameHTML  = document.getElementById("productName");
+            let productDescriptionHTML = document.getElementById("productDescription");
+            let productSoldCountHTML = document.getElementById("productSoldCount");
+            let productCategoryHTML = document.getElementById("productCategory");
+            let productCostHtml = document.getElementById("productCost");
         
-            categoryNameHTML.innerHTML = category.name;
-            categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.soldCount;
-            productCriteriaHTML.innerHTML = category.category;
-
+            productNameHTML.innerHTML = product.name;
+            productDescriptionHTML.innerHTML = product.description;
+            productSoldCountHTML.innerHTML = product.soldCount;
+            productCategoryHTML.innerHTML = '<a href="category-info.html">'+ product.category + '</a';
+            productCostHtml.innerHTML = product.currency + " " +product.cost;
             //Muestro las imagenes en forma de galería
-            showImagesGallery(category.images);
-        }
+            showImagesGallery(product.images);
+        
+
+            getJSONData(PRODUCTS_URL).then(function(resultObj){
+                if (resultObj.status === "ok"){ 
+                    let products = resultObj.data;
+        
+                    let html = "";
+                        product.relatedProducts.forEach(function(productIndex) {
+                        let productIterator = products[productIndex];
+                        html += `
+                        <div class="card" style= "width: 18rem;">
+                            <img src="${productIterator.imgSrc}" class="card-img-top" alt="">
+                            <div class= "card-body">
+                                <h5 class="card-title">${productIterator.name}</h5>
+                                <p class="card-text">${productIterator.description}</p>
+                                <a href="category-info.html" class="btn btn-link">Ver</a>
+                            </div>
+                        </div>
+                        `
+                        document.getElementById("relatedProducts").innerHTML = html;
+                        });
+                    }
+                });
+            }
+        });
+
     });
+       
     getJSONDataComentarios(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
@@ -50,7 +76,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
         }
-    });
+        
+    
 });
 function showComent(comentarios){
 
@@ -60,13 +87,13 @@ function showComent(comentarios){
 
        
             htmlContentToAppend += `
-            <a  class="list-group-item list-group-item-action">
-                <div class="row">
-                                    <div class="col">
+            <a  class="mb-1">
+                <div class="caja">
+                                    <div class="caja">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ comentario.user +`<p class="fa fa-star checked">` + comentario.score + `</p></h4>
+                            <h4 class="caja">`+ comentario.user +`<span class="fa fa-star checked">` + comentario.score + `</span></h4>
                             
-                            <small class="text-muted">` + comentario.dateTime + ` </small>
+                            <small class="caja">` + comentario.dateTime+ ` </small>
                         </div>
                         <p class="mb-1">` + comentario.description + `</p>
                         
@@ -80,3 +107,4 @@ function showComent(comentarios){
         document.getElementById("comentario").innerHTML = htmlContentToAppend;
     }
 }
+

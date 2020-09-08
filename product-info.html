@@ -16,6 +16,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/d83159c2be.js" ></script>
 </head>
 
@@ -50,27 +51,27 @@
         <!-- <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
           seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p> -->
       </div>
-      <h3 id="categoryName"></h3>
+      <h3 id="productName"></h3>
       <hr class="my-3">
       <dl>
         <dt>Precio</dt>
         <dd>
-          <p id="productCost" style="text-align: left;">USD13.500</p>
+          <p id="productCost" style="text-align: left;"></p>
         </dd>
 
         <dt>Descripción</dt>
         <dd>
-          <p id="categoryDescription" style="text-align: left;"></p>
+          <p id="productDescription" style="text-align: left;"></p>
         </dd>
 
         <dt>Cantidad de autos vendidos</dt>
         <dd>
-          <p id="productCount" style="text-align:left;"></p>
+          <p id="productSoldCount" style="text-align:left;"></p>
         </dd>
 
         <dt>Categorias</dt>
         <dd>
-          <p id="productCriteria" style="text-align:left;"></p>
+          <p id="productCategory" style="text-align:left;"></p>
         </dd>
 
         <dt>Imágenes ilustrativas</dt>
@@ -78,15 +79,23 @@
           <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
           </div>
         </dd>
+        <h2>Autos Relacionados</h2>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="relatedProducts">
+          </div>
+        </dd>
+
         
         
         
-        <div class="container">
+        
+        <div>
           <h2>Comentarios</h2>
           <hr>
          <div  id="comentario">
          
          </div>
+         
         <form>
           <hr>
           
@@ -114,10 +123,10 @@
           </p>
           </div>
             <!-- Campo de Texto -->
-  <input class="text" name="Name" type="name" value="" placeholder="Nombre de Usuario" />
+  <input class="text" name="Name" type="name" value="" placeholder="Nombre " />
   <br>
   <br>
-	<textarea class="coment" name="" id="comentario" cols="30" rows="5" placeholder="Ingrese su comentario"></textarea>
+	<textarea class="coment" name="" id="comentar" cols="30" rows="5" placeholder="Ingrese su comentario"></textarea>
   
 	<!-- Boton -->
 	<br>
@@ -126,11 +135,12 @@
  
 	<script>
 		boton.addEventListener('click', () => {
-			let comentario = document.getElementById("comentario").value;
+			let comentar = document.getElementById("comentar").value;
 			let boton = document.getElementById("boton");
-			alert(comentario);
+			alert(comentar) ;
 		});
-	</script>
+  </script>
+  
 
           <style>
             
@@ -208,6 +218,11 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   
   <script src="js/login_google.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>

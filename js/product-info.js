@@ -1,22 +1,25 @@
 var category = {};
 
-function showImagesGallery(array){
 
-    let htmlContentToAppend = "";
+function showImagesGallery(array) {
+  let htmlContentToAppend = "";
 
-    for(let i = 0; i < array.length; i++){
-        let imageSrc = array[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
-    }
+  for (let i = 0; i < array.length; i++) {
+      if (i == 0) {                             
+          htmlContentToAppend += ` 
+          <div class="carousel-item active">
+              <img class="d-block w-100"width="1500" height="600"  src="` + array[i] + `" > 
+          </div> 
+          `
+      } else {
+          htmlContentToAppend += `
+          <div class="carousel-item">
+              <img class="d-block w-100"width="1500" height="600" src="` + array[i] + `">
+          </div>    
+          `
+      }
+  }
+  document.getElementById("Carousel").innerHTML = htmlContentToAppend;
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de

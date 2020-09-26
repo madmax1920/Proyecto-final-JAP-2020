@@ -111,3 +111,13 @@ function showComent(comentarios){
     }
 }
 
+document.getElementById('boton').addEventListener('click', () => {
+    var opinion={};
+    opinion.description = document.getElementById("comentar").value;
+    opinion.user= document.getElementById('name').value;
+    opinion.score=document.getElementById('radio1').value;
+   
+    
+    comentarios.push(opinion);
+    showComent(comentarios) ;
+      });

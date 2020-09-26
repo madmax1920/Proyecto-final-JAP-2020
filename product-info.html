@@ -104,7 +104,7 @@
          
          </div>
          
-        <form>
+        <div>
           <hr>
           
           <h2>Calificación </h2>
@@ -131,7 +131,7 @@
           </p>
           </div>
             <!-- Campo de Texto -->
-  <input class="text" name="Name" type="name" value="" placeholder="Nombre " />
+  <input class="text" id="name" type="text" value="" placeholder="Nombre " />
   <br>
   <br>
 	<textarea class="coment" name="" id="comentar" cols="30" rows="5" placeholder="Ingrese su comentario"></textarea>
@@ -139,14 +139,10 @@
 	<!-- Boton -->
 	<br>
 	<br>
-	<input type="submit" class="btn btn-success" value="Enviar Comentario" id="boton">
+	<button class="btn btn-success" id="boton">Enviar comentario</button>
  
 	<script>
-		boton.addEventListener('click', () => {
-			let comentar = document.getElementById("comentar").value;
-			let boton = document.getElementById("boton");
-			alert(comentar) ;
-		});
+	
   </script>
   
 
@@ -199,7 +195,7 @@
               color: orange;
             }
           </style>
-        </form>
+        </div>
         
       </dl>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>

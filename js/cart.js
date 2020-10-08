@@ -39,38 +39,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
-let impSubtotal = 0;
-let impSub2 = 0;
-let subT = 0;
-var subT2 = 0;
-let porcentajeEnvio = 0.15;
 
-
-   //funcion que trae el numero del input, se lo paso a una variable  e imprimo en otro id el monto.
-   document.getElementById("numero0").addEventListener("change", function () {
-    var num0 = document.getElementById("numero0").value;
-
-    impSubtotal = document.getElementById("subTotal");
-    impSubtotal.innerHTML = num0 * 100;
-    subT = 100 * num0;
-    subT = this.value
-
-    actualizarCostos();
-
-});
-
-//funcion que trae el numero del input, se lo paso a una variable  e imprimo en otro id el monto.
-document.getElementById("numero1").addEventListener("change", function () {
-    var num1 = document.getElementById("numero1").value;
-
-    impSub2 = document.getElementById("subTotal2");
-    impSub2.innerHTML = (40 * 12500) * num1;
-    subT2 = (Math.round(12500 * 40) * impSub2);
-
-    subT2 = this.value;
-    actualizarCostos();
-
-});
 
 function actualizarCostos() {
 
@@ -92,14 +61,20 @@ function actualizarCostos() {
     envText.innerHTML = costoEnvioHTML;
     totalText.innerHTML = totalEnvioHTML;
 
-}
 
+  
+
+
+}
 
 let impSubtotal = 0;
 let impSub2 = 0;
+
 let subT = 0;
 var subT2 = 0;
-let porcentajeEnvio = 0.15;
+var porcentajeEnvio = 0.15;
+
+
 
 
 document.addEventListener("DOMContentLoaded", function (e) {

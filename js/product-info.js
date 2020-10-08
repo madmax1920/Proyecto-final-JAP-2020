@@ -8,13 +8,13 @@ function showImagesGallery(array) {
       if (i == 0) {                             
           htmlContentToAppend += ` 
           <div class="carousel-item active">
-              <img class="d-block w-100"width="1500" height="600"  src="` + array[i] + `" > 
+              <img class="d-block w-100" height="500"  src="` + array[i] + `" > 
           </div> 
           `
       } else {
           htmlContentToAppend += `
           <div class="carousel-item">
-              <img class="d-block w-100"width="1500" height="600" src="` + array[i] + `">
+              <img class="d-block w-100" height="500" src="` + array[i] + `">
           </div>    
           `
       }
@@ -113,11 +113,26 @@ function showComent(comentarios){
 
 document.getElementById('boton').addEventListener('click', () => {
     var opinion={};
+    var estrella = document.getElementsByName("puntuacion");
+    for (let star of estrella){
+        if(star.checked){
+            var puntuacion = star.value;
+        }
+    }
+
+    var fechahrs = new Date();
+    var d = fechahrs.getDate();
+    var día = (d < 10) ? '0' + d : d;
+    var m = fechahrs.getMonth() + 1;
+    var mes = (m < 10) ? '0' + m : m;
+    var fecha = fechahrs.getFullYear() + `-` + mes + `-` + día ;
+    var hora = fechahrs.getHours()  + `:` + fechahrs.getMinutes() + `:` + fechahrs.getSeconds();
+
+
     opinion.description = document.getElementById("comentar").value;
     opinion.user= document.getElementById('name').value;
-    opinion.score=document.getElementById('radio1').value;
-   
-    
+    opinion.score=puntuacion;
+    opinion.dateTime= fecha + ` ` + hora;
     comentarios.push(opinion);
     showComent(comentarios) ;
       });

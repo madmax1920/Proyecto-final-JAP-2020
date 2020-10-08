@@ -10,7 +10,8 @@
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="1035130257449-7s50rgfo5qgbgcb4ng1lu98tfn736fkh.apps.googleusercontent.com">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/estilos.css">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <script src="https://kit.fontawesome.com/d83159c2be.js" ></script>
@@ -35,7 +36,7 @@
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="vender">
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
      
@@ -50,7 +51,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="my-profile.html"><i class="icono"class="far fa-user-circle"></i>Mi perfil</a>
-    <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i>Mi carrito</a>
+    <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart" ></i>Mi carrito<span class="badge badge-danger">2</span></a>
     <a><button class="dropdown-item"id="cerrar-sesion" onclick="signOut();"><i class="fas fa-door-open"></i>Cerrar Sesión</button></a>
    
     
@@ -59,13 +60,360 @@
     
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="text-center p-4">
+      <h2>Articulos del Carrito</h2>
+      <p class="lead">Encontrarás aquí toda la información de los productos seleccionados.</p>
     </div>
+
+
+    <table class="table table">
+      <thead class="thead">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Articulos</th>
+          <th scope="col">Precio unit</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">SubTotal</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img id="img" src="img/tree1.jpg" width="100" height="100" class="img-thumbnail"></td>
+          <th scope="row" id="articulo0"></th>
+          <td id="costo0"></td>
+          <td><input id="numero0" type="number" class="center" style="height: 30px; width: 40px;" type="form-control"
+              min="0" value=""></td>
+          <td id="subTotal"></td>
+          <td>
+            <a href="#" class="borrar-producto fas fa-times-circle"  data-id="1"></a>
+        </td>
+        </tr>
+        <tr>
+          <td><img id="img2" src="img/prod3.jpg" width="100" height="100" class="img-thumbnail"></td>
+          <th scope="row" id="articulo1"></th>
+          <td id="costo1"></td>
+          <td><input id="numero1" type="number" class="center" style="height: 30px; width: 40px;" type="form-control"
+              min="0" value=""></td>
+          <td id="subTotal2"></td>
+          <td>
+            <a href="#" class="borrar-producto fas fa-times-circle"  data-id="img"></a>
+        </td>
+        </tr>
+    </table>
+
+    <hr class="mb-4">
+    <h5 class="mb-3">Tipo de publicación</h5>
+    <div class="d-block my-3">
+      <div class="custom-control custom-radio">
+        <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" checked=""
+          required="">
+        <label class="custom-control-label" for="premiumradio">Premium 2 a 5 dias (15%)</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" required="">
+        <label class="custom-control-label" for="expressradio">Express 5 a 8 dias (7%)</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+        <label class="custom-control-label" for="standardradio">Estándar 12 a 15 dias (5%)</label>
+      </div>
+    </div>
+   
+
+    </form>
+
+    <hr class="mb-4">
+    <h4 class="text-center p-4"">Costos</h4>
+    <ul class="list-group mb-3">
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0">SubTotal</h6>
+          <small class="text-muted">costo unitario del producto por cantidad</small>
+        </div>
+        <span class="text-muted" id="subtotalText">-</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0">Costo de envio</h6>
+          <small class="text-muted">Según el tipo de envio</small>
+        </div>
+        <span class="text-muted" id="envioText">-</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Total ($)</span>
+        <strong id="totalCostText">-</strong>
+      </li>
+    </ul>
+  
   </div>
+      
+          
+      <div class="container ">
+        <h4 class="text-center p-4">Dirección de envío:</h4>
+        <input type="text"  placeholder="Ingrese su dirección: Calle, número y esquina" class="form-control" 
+        style="margin-bottom:1em !important;" required>            
+      </div>
+
+      <div class="container">
+        <label for="pais">País de envío:</label>
+        <input type="text"  placeholder="Ingrese su : Ciudad, País" class="form-control" 
+      style="margin-bottom:1.2em !important;" required>            
+      </div>
+      <div class="container">
+        <label for="direccion">Email de Contacto  :</label>
+        <input type="text"  placeholder="Ingrese su dirección: Email " class="form-control" 
+        style="margin-bottom:1em !important;" required>            
+      </div>
+      <hr>
+      <div class="container">
+        <h4 class="text-center p-4">Metodos de Pago</h4>
+      <hr>
+       
+        
+        <div class="container">
+      
+          <hr>
+           
+            
+              <div class="box ">
+               
+                  
+                   
+                  
+                </div>
+                <div div.play , div.pause , div.stop , div.previous , div.next
+                {
+                  display: inline;
+                }class="pull-right">
+            <button type="button" class="btn btn-success " data-toggle="modal" data-target="#modal">Pagar con Transferencia</button>
+          </div>
+            <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Condiciones de Transferencia</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <section>
+            
+                    <div class="row">               
+                       <div class="col-lg-12">                            
+                      <div class="card wish-list pb-1">                  
+                        <div class="card-body" style="width:35em;">                       
+                            <div class="row">         
+                             <div class="col-lg-6">
+                                <div class="md-form md-outline mb-0 mb-lg-4">
+                                  <label for="nombre">Nombre del Titular</label>
+                                  <input type="text" placeholder="nombre" class="form-control mb-0 mb-lg-2"
+                                  required>                                  
+                                </div>                  
+                              </div>
+                            <div class="col-lg-6">
+                  
+                               
+                                <div class="md-form md-outline">
+                                  <label for="apellido">Apellido</label>
+                                  <input type="text" placeholder="apellido" class="form-control" 
+                                  required>                                  
+                                </div>
+                              </div>
+                              
+                            </div>
+                            
+                  
+                            <div class="d-flex flex-wrap">
+                              <label>Seleccione un banco</label>
+                              <div class="select-outline position-relative w-100">
+                                <select class="mdb-select md-form md-outline dropdown-item" style=" border: 1px solid #ced4da;
+                                border-radius:  .25rem; padding: .375rem .75rem; margin-bottom:1em !important;" required>
+                                  <option value="" disabled selected>Banco</option>
+                                  <option value="Brou">Brou</option>
+                                  <option value="Itau">Itau</option>
+                                  <option value="Santander">Santander</option>
+                                  <option value="Santander">HSBC</option>
+                                  <option value="Santander">Scotiabank</option>
+                                </select>                                
+                              </div>
+                            </div>
+                  
+                           
+                            <div class="md-form md-outline mt-0">
+                              <label for="cuentaOrigen">Cuenta origen</label>
+                              <input type="text"  placeholder=" Cuenta de Origen" 
+                              class="form-control" maxlength="12" style="margin-bottom:1em !important;" required>
+                            </div>
+                  
+                            
+                            <div class="md-form md-outline mt-0">
+                              <label for="destino">Cuenta origen</label>
+                              <input type="text"  placeholder="Cuenta de Destino"
+                                class="form-control" style="margin-bottom:1em !important;"  required>                              
+                            </div>
+                  
+                            <div class="md-form md-outline mt-0">
+                              <label for="telefono">Teléfono de Contacto</label>
+                              <input type="tel" class="form-control" maxlenght="9" 
+                              style="margin-bottom:1em !important;" required=>                              
+                            </div>
+                  
+                     
+                            <div class="md-form md-outline mt-0">
+                              <label for="email">Email de contacto:</label>
+                              <input type="email"  class="form-control" style="margin-bottom:1em !important;" required>                              
+                            </div>
+                  
+                          </div>
+                        </div>
+                      
+                  
+                      </div>
+                        
+                    </div>
+                  
+                  
+                  </section>      
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Realizar Pago</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="container">
+      
+    <hr>
+     
+      
+        <div class="box ">
+         
+            
+             
+            
+          </div>
+          <div class="pull-right">
+      <button type="button" class="btn btn-success " data-toggle="modal" data-target="#contidionsModal">Pagar con Tarjeta</button>
+    </div>
+    <div class="alert fade" role="alert" id="alertResult">
+      <span id="resultSpan"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pago con Tarjeta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+          
+          </div>
+      <div class="contenedor">
+
+        <!-- Tarjeta -->
+        <section class="tarjeta" id="tarjeta">
+          <div class="delantera">
+            <div class="logo-marca" id="logo-marca">
+        
+            </div>
+            <img src="img/chip-tarjeta.png" class="chip" alt="">
+            <div class="datos">
+              <div class="grupo" id="numero">
+                <p class="label">Número Tarjeta</p>
+                <p class="numero">#### #### #### ####</p>
+              </div>
+              <div class="flexbox">
+                <div class="grupo" id="nombre">
+                  <p class="label">Nombre Tarjeta</p>
+                  <p class="nombre">ES LA 3</p>
+                </div>
+    
+                <div class="grupo" id="expiracion">
+                  <p class="label">Expiracion</p>
+                  <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="trasera">
+            <div class="barra-magnetica"></div>
+            <div class="datos">
+              <div class="grupo" id="firma">
+                <p class="label">Firma</p>
+                <div class="firma"><p></p></div>
+              </div>
+              <div class="grupo" id="ccv">
+                <p class="label">CCV</p>
+                <p class="ccv"></p>
+              </div>
+            </div>
+            <p class="leyenda">El uso de esta tarjeta se rige por los terminos y condiciones que se estipulan en el contrato oportunamente suscripto. De hallarse esta Tarjeta se agradecera devolverla.</p>
+            <a href="#" class="link-banco">www.eCommerce.com</a>
+          </div>
+        </section>
+    
+        <!-- Contenedor Boton Abrir Formulario -->
+        <div class="contenedor-btn">
+          <button class="btn-abrir-formulario" id="btn-abrir-formulario">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+    
+        <!-- Formulario -->
+        <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+          <div class="grupo">
+            <label for="inputNumero" >Número Tarjeta</label>
+            <input type="text" id="inputNumero" maxlength="19" autocomplete="off">
+          </div>
+          <div class="grupo">
+            <label for="inputNombre">Nombre</label>
+            <input type="text" id="inputNombre" maxlength="19" autocomplete="off">
+          </div>
+          <div class="flexbox">
+            <div class="grupo expira">
+              <label for="selectMes">Expiracion</label>
+              <div class="flexbox">
+                <div class="grupo-select">
+                  <select name="mes" id="selectMes">
+                    <option disabled selected>Mes</option>
+                  </select>
+                  <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="grupo-select">
+                  <select name="year" id="selectYear">
+                    <option disabled selected>Año</option>
+                  </select>
+                  <i class="fas fa-angle-down"></i>
+                </div>
+              </div>
+            </div>
+    
+            <div class="grupo ccv">
+              <label for="inputCCV">CCV</label>
+              <input type="text" id="inputCCV" maxlength="3">
+            </div>
+          </div>
+          <button type="submit" class="btn-enviar">Realizar Pago</button>
+        </form>
+      </div>
+      <>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -82,18 +430,9 @@
   <script src="js/login_google.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  <script>
-    const user_account = document.getElementById("info-user");
-
-    if (localStorage.getItem("user") === null) {
-      location.href = "inicio.html";
-      
-    } else {
-      user_account.innerHTML += `Bienvenido/a: ${localStorage.getItem("user")}`
-      
-    }
-  </script>
-  
+  <script src="js/userlog.js"></script>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>

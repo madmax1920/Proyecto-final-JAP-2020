@@ -33,7 +33,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="my-profile.html"><i class="far fa-user-circle"></i>Mi perfil</a>
-    <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i>Mi carrito</a>
+    <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart" ></i>Mi carrito<span class="badge badge-danger">2</span></a>
     <a><button class="dropdown-item"id="cerrar-sesion" onclick="signOut();"><i class="fas fa-door-open"></i>Cerrar Sesión</button></a>
    
     
@@ -102,17 +102,7 @@
   
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  <script>
-    const user_account = document.getElementById("info-user");
-
-    if (localStorage.getItem("user") === null) {
-      location.href = "inicio.html";
-      
-    } else {
-      user_account.innerHTML += `Bienvenido/a: ${localStorage.getItem("user")}`
-      
-    }
-  </script>
+  <script src="js/userlog.js"></script>
   
 </body>
 

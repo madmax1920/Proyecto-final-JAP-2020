@@ -16,7 +16,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
- 
+  <link href="css/comentario.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/d83159c2be.js" ></script>
 </head>
 
@@ -36,7 +36,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="my-profile.html"><i class="far fa-user-circle"></i>Mi perfil</a>
-    <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i>Mi carrito</a>
+    <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart" ></i>Mi carrito<span class="badge badge-danger">2</span></a>
     <a><button class="dropdown-item"id="cerrar-sesion" onclick="signOut();"><i class="fas fa-door-open"></i>Cerrar Sesión</button></a>
    
         </div>
@@ -92,7 +92,7 @@
           <div class="row text-center text-lg-left pt-2" id="relatedProducts">
           </div>
         </dd>
-
+<hr>
         
         
         
@@ -108,24 +108,24 @@
           <hr>
           
           <h2>Calificación </h2>
-                    <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5">
+                    <p class="puntuacion">
+            <input id="radio1" type="radio" name="puntuacion" value="5">
             <!--
             --><label for="radio1">★</label>
             <!--
-            --><input id="radio2" type="radio" name="estrellas" value="4">
+            --><input id="radio2" type="radio" name="puntuacion" value="4">
             <!--
             --><label for="radio2">★</label>
             <!--
-            --><input id="radio3" type="radio" name="estrellas" value="3">
+            --><input id="radio3" type="radio" name="puntuacion" value="3">
             <!--
             --><label for="radio3">★</label>
             <!--
-            --><input id="radio4" type="radio" name="estrellas" value="2">
+            --><input id="radio4" type="radio" name="puntuacion" value="2">
             <!--
             --><label for="radio4">★</label>
             <!--
-            --><input id="radio5" type="radio" name="estrellas" value="1">
+            --><input id="radio5" type="radio" name="puntuacion" value="1">
             <!--
             --><label for="radio5">★</label>
           </p>
@@ -140,61 +140,7 @@
 	<br>
 	<br>
 	<button class="btn btn-success" id="boton">Enviar comentario</button>
- 
-	<script>
-	
-  </script>
-  
-
-          <style>
-            
-
-              .coment{
-                padding-right: 74%;
-                margin-right: auto;
-              }
-          
-            #form {
-              width: 250px;
-              margin: 0 auto;
-              height: 50px;
-            }
-
-            #form p {
-              text-align: center;
-            }
-
-            #form label {
-              font-size: 20px;
-            }
-
-            input[type="radio"] {
-              display: none;
-            }
-
-            label {
-              color: grey;
-            }
-
-            .clasificacion {
-              font-size: 30px;
-              
-              max-width:-200px;
-              direction: rtl;
-              unicode-bidi: bidi-override;
-            }
-            
-
-            label:hover,
-            label:hover~label {
-              color: orange;
-            }
-
-
-            input[type="radio"]:checked~label {
-              color: orange;
-            }
-          </style>
+           
         </div>
         
       </dl>
@@ -228,17 +174,7 @@
   <script src="js/login_google.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  <script>
-    const user_account = document.getElementById("info-user");
-
-    if (localStorage.getItem("user") === null) {
-      location.href = "inicio.html";
-
-    } else {
-      user_account.innerHTML += `Bienvenido/a: ${localStorage.getItem("user")}`
-
-    }
-  </script>
+ <script src="js/userlog.js"></script>
 
 </body>
 

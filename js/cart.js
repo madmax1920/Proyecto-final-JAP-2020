@@ -1,132 +1,114 @@
+var comissionPercentage = 0;
+var articles = [];
 
-let elemento0 = {};
-let elemento1 = {};
-let valor0 = 0;
-let valor2 = 0;
-let num0 = 0;
-let num1 = 0;
+//función para mostrar los elementos del carrito
+function showCart(array) {
+    let html = ``;
 
+    if(array){
+    for (i = 0; i < array.length; i++) {
+        article = array[i];
 
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(CART_INFO_URL).then(function (resultCart) {
-        if (resultCart.status === "ok") {
-            articulo0 = resultCart.data;
+        html += `
+        
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Articulos</th>
+          <th scope="col">Precio unit</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">SubTotal</th>
+        
+        </tr>
+        <th class="align-middle align-center" scope="row"><img style='max-height:7em;' src='${article.src}' alt='${article.src}' width="100" height="100" class="img-thumbnail"class="img-thumbnail"></th>
+                
+        <td class="align-middle">${article.name}</td>
+                <td class="align-middle">
+        <div>
+                      <div class="def-number-input number-input btn-group ">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown(); showFinal(articles);"
+                        class="redondo">-</redondo>
+                          </button>
+                          
+                        <input class="quantity" min="1" name="inputcount[${i}]" value="${article.count}" type="number" id="inputcount${i}" style="width:3em; text-align:center" disabled>
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); showFinal(articles);"
+                          class="redondo">+</redondo>
+                      </div>
+                    </div>   
+  </td>
+  
+  <td class="align-middle">${article.unitCost} ${article.currency}</td>
+  <td class="align-middle" id="sumItems${i}"></td>
+  <td class="align-middle"><i class="borrar-producto fas fa-times-circle"  onclick="articles.splice(${i},1); showCart(articles); showFinal(articles)"></i></td>
+  </tr>
+  `;
+    }
+}
+    document.getElementById("muestroelementos").innerHTML = html;
+}
+// recorre el array obteniendo los resultados del mismo para hacer las cuentas
+function showFinal(array) {
+    var subtotal = 0;
+    
+    var sumArt = 0;
 
-            elemento0 = document.getElementById("articulo0");
-            elemento1 = document.getElementById("articulo1");
-            valor0 = document.getElementById("costo0");
-            valor1 = document.getElementById("costo1");
-            num0 = document.getElementById("numero0");
-            num1 = document.getElementById("numero1");
-
-            for (let i = 0; i < articulo0.articles.length; i++) {
-                elemento0.innerHTML = articulo0.articles[0].name;
-                valor0.innerHTML = articulo0.articles[0].currency + ` ` + articulo0.articles[0].unitCost;
-                num0.value = articulo0.articles[0].count;
-
-                if (articulo0.articles[i]) {
-
-                    elemento1.innerHTML = articulo0.articles[i].name;
-                    valor1.innerHTML = articulo0.articles[i].currency + ` ` + articulo0.articles[i].unitCost;
-                    num1.value = articulo0.articles[i].count;
-                }
-            }
-
+    for (i = 0; i < array.length; i++) {
+        article = array[i];
+        let cantidad = document.getElementById("inputcount" + i).value;
+        
+// si se encuentra en pesos uruguayos lo paso a dolares
+        if (article.currency == "UYU") {
+            sumArt = article.unitCost * cantidad / 40;
+        } else if (article.currency == "USD") {
+            sumArt = article.unitCost * cantidad;
         }
 
+        subtotal += sumArt;
+        document.getElementById("sumItems" + i).innerHTML = sumArt + ` USD`;
+    }
+    
+    var total = subtotal;
 
-    })
-});
+    if (comissionPercentage != 0) {
+        total = subtotal + ( subtotal * comissionPercentage);
+    }
 
-
-
-
-function actualizarCostos() {
-
-    let subText = document.getElementById("subtotalText");
-    let envText = document.getElementById("envioText");
-    let totalText = document.getElementById("totalCostText");
-
-    //calculo el precio unitario del pino
-    var t1 = (subT * 100);
-    //calculo el precio unitario de autos y lo paso a pesos 
-    var t2 = (subT2 * 12500 * 40);
-    var t = (t2 + t1);
-
-    let subtextHTML = t;
-    let costoEnvioHTML = Math.round(porcentajeEnvio * t);
-    let totalEnvioHTML = Math.round(t + costoEnvioHTML);
-
-    subText.innerHTML = subtextHTML;
-    envText.innerHTML = costoEnvioHTML;
-    totalText.innerHTML = totalEnvioHTML;
-
-
-  
-
-
+    // muestro los valores en pantalla
+    document.getElementById("sumoSubT").innerHTML = (subtotal).toFixed(2) + ` USD`;
+    document.getElementById("envio").innerHTML = (subtotal * comissionPercentage).toFixed(2) + ` USD`;    document.getElementById("totalFinal").innerHTML = (total).toFixed(2) + ` USD`;  
+    document.getElementById("totalFinal").innerHTML = (total).toFixed(2) + ` USD`;
+    
 }
 
-let impSubtotal = 0;
-let impSub2 = 0;
-
-let subT = 0;
-var subT2 = 0;
-var porcentajeEnvio = 0.15;
 
 
 
 
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-
-
-    //funcion que trae el numero del input, se lo paso a una variable  e imprimo en otro id el monto.
-    document.getElementById("numero0").addEventListener("change", function () {
-        var num0 = document.getElementById("numero0").value;
-
-        impSubtotal = document.getElementById("subTotal");
-        impSubtotal.innerHTML = num0 * 100;
-        subT = 100 * num0;
-        subT = this.value
-
-        actualizarCostos();
-
+    getJSONData(CART_INFO_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            articles = resultObj.data.articles;
+            showCart(articles);
+            showFinal(articles);
+        }
     });
 
-    //funcion que trae el numero del input, se lo paso a una variable  e imprimo en otro id el monto.
-    document.getElementById("numero1").addEventListener("change", function () {
-        var num1 = document.getElementById("numero1").value;
-
-        impSub2 = document.getElementById("subTotal2");
-        impSub2.innerHTML = (40 * 12500) * num1;
-        subT2 = (Math.round(12500 * 40) * impSub2);
-
-        subT2 = this.value;
-        actualizarCostos();
-
-    });
-
-
+    //cambios en el valor del comissionPercentage
     document.getElementById("premiumradio").addEventListener("change", function () {
-        porcentajeEnvio = 0.15;
-        actualizarCostos()
+        comissionPercentage = 0.15;
+        showFinal(articles);
     });
 
     document.getElementById("expressradio").addEventListener("change", function () {
-        porcentajeEnvio = 0.07;
-        actualizarCostos()
+        comissionPercentage = 0.07;
+        showFinal(articles);
     });
 
     document.getElementById("standardradio").addEventListener("change", function () {
-        porcentajeEnvio = 0.05;
-        actualizarCostos()
+        comissionPercentage = 0.05;
+        showFinal(articles);
     });
-
-
-
-
-
-
-
-
 });
+

@@ -112,3 +112,55 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
+var direccion = document.getElementById('direccion');
+var pais = document.getElementById('pais');
+var email = document.getElementById('email');
+var error = document.getElementById('error');
+error.style.color = 'red';
+
+function enviarFormulario(){
+    
+    
+    
+var mensajesError = [];
+
+if(direccion.value === null || direccion.value ===''){
+    mensajesError.push('ingresa tu direccion');
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes completar los campos para continuar!',
+        footer: '<a href>Volver al carro</a>'
+      })
+      
+}
+if(pais.value === null || pais.value ===''){
+    mensajesError.push('ingresa tu pais');
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes completar los campos para continuar!',
+        footer: '<a hrefVolver al carro</a>'
+      })
+      
+}
+if(email.value === null || email.value ===''){
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes completar los campos para continuar!',
+      
+        footer: '<a href>Volver al carro</a>'
+        
+      })
+    mensajesError.push('ingresa tu email');
+      
+    
+
+}
+
+ error.innerHTML = mensajesError.join(',');
+
+    return false;
+
+}

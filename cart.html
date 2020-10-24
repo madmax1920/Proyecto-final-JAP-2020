@@ -59,7 +59,7 @@
 </div>
     
   </nav>
-  <div class="container p-5">
+  <div class="container">
     <div class="text-center p-4">
       <h2>Articulos del Carrito</h2>
       <p class="lead">Encontrarás aquí toda la información de los productos seleccionados.</p>
@@ -70,7 +70,7 @@
      
     </table>
 
-    <hr class="mb-4">
+    <hr class="container">
     <h5 class="mb-3">Tipos de Envio</h5>
     <div class="d-block my-3">
       <div class="custom-control custom-radio">
@@ -115,23 +115,35 @@
     </ul>
   
   </div>
+  
+  
       
           <hr>
-      <div class="container p-5 ">
+          
+          <form action="cart.html" >
+      <div class="container ">
         <h4 class="text-center p-4">Dirección de envío:</h4>
-        <input type="text"  placeholder="Ingrese su dirección: Calle, número y esquina" class="form-control" 
-        style="margin-bottom:1em !important;" required>            
+        <input type="text" id="direccion" placeholder="Ingrese su dirección: Calle, número y esquina" class="form-control" 
+        style="margin-bottom:1em !important;" required>       
+        <div class="invalid-feedback">
+          La cantidad es requerida.
+        </div>     
      
         <label for="pais">País de envío:</label>
-        <input type="text"  placeholder="Ingrese su : Ciudad, País" class="form-control" 
-      style="margin-bottom:1.2em !important;" required>            
+        <input type="text" id="pais"  placeholder="Ingrese su : Ciudad, País" class="form-control" 
+      style="margin-bottom:1.2em !important;" required="">            
       
         
         <label for="direccion">Email de Contacto  :</label>
-        <input type="text"  placeholder="Ingrese su dirección: Email " class="form-control" 
+        <input type="text" id="email" placeholder="Ingrese su dirección: Email " class="form-control" 
         style="margin-bottom:1em !important;" required>            
       </div>
       <hr>
+    </form>
+    <div id='error'></div>
+    
+    
+
 
       <h4 class="text-center p-4">Metodos de Pago</h4>
       <p class="lead">Tú eliges pagar online nosotros lo hacemos mas seguro</p>
@@ -159,7 +171,7 @@
                 {
                   display: inline;
                 }class="pull-right">
-            <button type="button" class="btn btn-success " data-toggle="modal" data-target="#modal">Pagar con Transferencia</button>
+            <button type="button"onclick= ' return enviarFormulario()' class="btn btn-success " data-toggle="modal" data-target="#modal">Pagar con Transferencia</button>
           </div>
             <div class="modal fade" tabindex="-1" role="dialog" id="modal">
               <div class="modal-dialog" role="document">
@@ -229,7 +241,7 @@
                             <div class="md-form md-outline mt-0">
                               <label for="telefono">Teléfono de Contacto</label>
                               <input type="tel" class="form-control" maxlenght="9" 
-                              style="margin-bottom:1em !important; width: 450px;" required=>                              
+                              style="margin-bottom:1em !important; width: 450px;" required>                              
                             </div>
                   
                      
@@ -249,8 +261,10 @@
                   
                   </section>      
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Realizar Pago</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Realizar Pago</button>
+                    
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -278,7 +292,7 @@
             
               </div>
               <div class="pull-right">
-          <button type="button" class="btn btn-success " data-toggle="modal" data-target="#contidionsModal">Pagar con Tarjeta</button>
+          <button type="button" class="btn btn-success " onclick= ' return enviarFormulario()' data-toggle="modal" data-target="#contidionsModal">Pagar con Tarjeta</button>
         </div>
         <div class="alert fade" role="alert" id="alertResult">
           <span id="resultSpan"></span>
@@ -386,7 +400,7 @@
                   <input type="text" id="inputCCV" maxlength="3">
                 </div>
               </div>
-              <button type="submit" class="btn-enviar">Realizar Pago</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Realizar Pago</button>
             </form>
           </div>
             </div>
@@ -416,6 +430,12 @@
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
   <script src="js/userlog.js"></script>
   <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
 	<script src="js/main.js"></script>
 </body>
 

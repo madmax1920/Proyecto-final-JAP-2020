@@ -18,16 +18,22 @@
   <script src="https://kit.fontawesome.com/d83159c2be.js" ></script>
 </head>
 
-<body>
-
-  <nav class="site-header sticky-top py-1 bg-dark">
+<body class="vender">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" 
+              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-     
-      <a class="btn btn-outline-info"href="cover.html"><i class="fas fa-home"></i>Inicio</a>
-      <a class="btn btn-outline-info"href="categories.html"><i class="fas fa-th"></i>Categorías</a>
-      <a class="btn btn-outline-info"href="products.html"><i class="fas fa-layer-group"></i>Productos</a>
-      <a class="btn btn-outline-info"href="sell.html"><i class="fas fa-hand-holding-usd"></i>Vender</a>
-      
+
+      <a class="btn btn-outline-info" href="cover.html"><i class="fas fa-home"></i>Inicio</a>
+      <a class="btn btn-outline-info" href="categories.html"><i class="fas fa-th"></i>Categorías</a>
+      <a class="btn btn-outline-info" href="products.html"><i class="fas fa-layer-group"></i>Productos</a>
+      <a class="btn btn-outline-info" href="sell.html"><i class="fas fa-hand-holding-usd"></i>Vender</a>
+     </div>
+      </div>
       <div class="dropdown">
   <button class="btn btn-success dropdown-toggle" type="button"id="info-user"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    
@@ -37,6 +43,9 @@
     <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart" ></i>Mi carrito<span class="badge badge-danger">2</span></a>
     <a><button class="dropdown-item"id="cerrar-sesion" onclick="signOut();"><i class="fas fa-door-open"></i>Cerrar Sesión</button></a>
    
+    
+  </div>
+</div>
     
   </div>
 </div>

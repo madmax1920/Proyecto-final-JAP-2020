@@ -13,9 +13,9 @@ function showCart(array) {
         
         <tr>
           <th scope="col"></th>
-          <th scope="col">Articulos</th>
-          <th scope="col">Precio unit</th>
+          <th scope="col">Articulos</th>          
           <th scope="col">Cantidad</th>
+          <th scope="col">Precio unit</th>
           <th scope="col">SubTotal</th>
         
         </tr>
